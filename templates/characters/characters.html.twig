@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CharactersController!{% endblock %}
+
+{% block class_body %}class="characters"{% endblock %}
+
+ {% block background %}
+    <div class="bg"></div>
+ {% endblock %}
+{% block body %}
+    <form action="{{path('characters')}}">
+        <label for="characters">Look for :</label>
+        <input id="characters" name="name" type="text">
+        <button>Search</button>
+    </form>
+    <section class="cards_container">
+        {% for data in data_characters.results %}
+            {% include "_components/character_cards.html.twig" %}            
+        {% endfor %}
+    </section>
+    {% if query %}
+        {% for page in 1..data_characters.info.pages %}
+            <a href="{{path('characters', {'page' : page, 'query' : query})}}">{{page}}</a>
+        {% endfor %}
+    {% else %}
+        {% for page in 1..data_characters.info.pages %}
+        <a href="{{path('characters', {'page' : page})}}">{{page}}</a>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

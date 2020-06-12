@@ -1,0 +1,18 @@
+<p> <strong>Episode : </strong>{{data.episode}} </p>
+<section class="list-characters">
+
+{% if data.characters == [] %}
+    <h2>No characters in this episode</h2>
+    {% else %}
+        <h2>characters in this episode : </h2>
+{% endif %}
+    <div class="characters">
+    {% for char in data.characters %}
+    {% set character = json_decode(char) %}
+    <article class="card_thumb_content" title="{{ character.name }}">
+        <a href="{{path('characters', {'name' : character.name } )}}" class="link"></a>
+        <img src="{{character.image}}" alt="{{ character.name }}">
+    </article>
+{% endfor %}
+    </div>
+</section>

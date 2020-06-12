@@ -1,0 +1,49 @@
+@import "../_components/mixin.scss";
+@import "../_components/color.scss";
+
+section.cards_container {
+    @include flex(center, center);
+    flex-wrap: wrap;
+    max-width: 100vw;
+    padding: 30px;
+
+    .card_content {
+        @include flex(center, center, column);
+        width: fit-content;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: $rick-morty-color;
+        position: relative;
+        margin: 20px;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $rick-morty-color-hover;
+        }
+
+        p.avatar {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.infos {
+            margin-left: 20px;
+
+            h2 {
+                margin-top: 20px;
+            }
+        }
+
+        img {
+            @include img;
+            display: block;
+        }
+
+        a.link {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+        }
+    }
+}

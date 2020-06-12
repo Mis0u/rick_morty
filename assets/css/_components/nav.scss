@@ -1,0 +1,47 @@
+@import "../_components/mixin";
+@import "../_components/variables";
+@import "../_components/color";
+
+
+nav {
+  @include flex(space-between, center);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+
+  img {
+    max-width: 100%;
+    height: 50px;
+  }
+
+  ul {
+    @include flex(flex-end, center);
+    width: 50%;
+
+    li {
+      list-style-type: $no-bullet;
+      margin-right: 15px;
+
+      a {
+        color: $rick-morty-color;
+        text-shadow: none;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          text-shadow: $shadow-rick-morty;
+        }
+      }
+
+      a.active {
+        text-shadow: $shadow-rick-morty;
+      }
+    }
+  }
+}
+
+nav.active {
+  background-color: #fff;
+  box-shadow: 1px 1px 2px #e5f5ef;
+}

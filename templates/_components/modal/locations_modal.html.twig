@@ -1,0 +1,19 @@
+<p> <strong>Type : </strong>{{data.type}} </p>
+<p> <strong>Dimension : </strong>{{data.dimension}} </p>
+<section class="list-characters">
+
+{% if data.residents == [] %}
+    <h2>No residents in this location</h2>
+    {% else %}
+        <h2>Residents in this location : </h2>
+{% endif %}
+    <div class="residents">
+        {% for resident in data.residents %}
+    {% set character = json_decode(resident) %}
+    <article class="card_thumb_content" title="{{ character.name }}">
+        <a href="{{path('characters', {'name' : character.name } )}}" class="link"></a>
+        <img src="{{character.image}}" alt="{{ character.name }}">
+    </article>
+{% endfor %}
+    </div>
+</section>

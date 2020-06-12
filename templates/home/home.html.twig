@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('slick-css') }}
+{% endblock %}
+{% block class_body %}class="homepage"{% endblock %}
+
+{% block background %}
+    <div id="slider">
+        <div class="content"><img src="{{asset('images/1.jpg')}}" alt=""></div>
+        <div class="content"><img src="{{asset('images/2.png')}}" alt=""></div>
+        <div class="content"><img src="{{asset('images/3.png')}}" alt=""></div>
+        <div class="content"><img src="{{asset('images/4.jpg')}}" alt=""></div>
+    </div>
+{% endblock %}
+{% block body %}
+    <section class="presentation">
+        <h1>Welcome in the famous world of Rick and Morty ❤</h1>
+        <p>You want to know who lives in <strong><mark>Earth C-137</mark></strong> ?, what the <strong><mark>Mechanical Morty's</mark></strong> species ? or whic characters played in the 
+        <strong><mark>episode 8 season 3</mark></strong> ? Well you are in the rigth place. You will be able to search by locations, characters or episodes and find anything you're looking for ✨.
+         I buildt this website thanks to the <strong><a href="https://rickandmortyapi.com/" target="_blank">Rick and Morty's api</a></strong> created by 
+         <strong> Axel Fuhrmann and Talita</strong> so thanks to them for their amazing work.</p>
+
+         <h2>Hope you're gonna find what you're looking for and remember, it's time to get <strong>Schwifty</strong></h2>
+
+    </section>
+    <section class="cards_container">
+        {% for i in 1..4 %}
+            {% set random_id = random(1,total_characters.info.count) %}
+            {% set data = json_decode("https://rickandmortyapi.com/api/character/"~random_id) %}
+
+            {% include "_components/character_cards.html.twig" %}
+        {% endfor %}
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('slick') }}
+{% endblock %}

@@ -1,0 +1,185 @@
+@import "./_components/variables.scss";
+@import "./_components/mixin.scss";
+@import "./_components/color.scss";
+
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    @include flex(center, center);
+    z-index: 999;
+}
+
+.modal__container {
+    background-color: $bg-rick-morty-color;
+    padding: 30px;
+    width: $full-width;
+    height: $full-screen;
+    border-radius: 4px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal__header {
+    img {
+        margin: auto;
+        border-radius: 100%;
+    }
+
+}
+
+.modal__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: $white;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+.modal__close {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    i {
+        transform: scale(2.5);
+        cursor: pointer;
+        color: $close-btn;
+    }
+}
+
+/* .modal__header .modal__close:before {
+    content: "\2715";
+} */
+
+.modal__content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    width: 100%;
+
+    p,
+    h3 {
+        text-align: center;
+    }
+
+    div.container-list {
+        @include flex(space-evenly, center);
+        flex-wrap: wrap;
+
+        p.list {
+            background: $modal-linear;
+            border-radius: 50px;
+            box-shadow: $neumorphisme;
+            padding: 10px;
+            color: $white;
+        }
+    }
+
+    section.list-characters {
+        @include flex(center, center, column);
+
+        div {
+            @include flex(space-evenly, center);
+            flex-wrap: wrap;
+        }
+
+        article.card_thumb_content {
+            max-width: 50px;
+            max-height: 50px;
+            position: relative;
+            margin: 10px;
+
+            img {
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+/**************************\
+    Demo Animation Style
+  \**************************/
+@keyframes mmfadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mmfadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mmslideIn {
+    from {
+        transform: translateY(15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes mmslideOut {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+.micromodal-slide {
+    display: none;
+}
+
+.micromodal-slide.is-open {
+    display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+    animation: mmfadeIn .5s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+    animation: mmslideIn .5s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+    animation: mmfadeOut .5s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+    animation: mmslideOut .5s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+    will-change: transform;
+}

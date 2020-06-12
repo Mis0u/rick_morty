@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello LocationsController!{% endblock %}
+{% block class_body %}class="locations"{% endblock %}
+ {% block background %}
+    <div class="bg"></div>
+ {% endblock %}
+{% block body %}
+    <form action="{{path('locations')}}">
+        <label for="locations">Look for :</label>
+        <input id="locations" name="name" type="text">
+        <button>Search</button>
+    </form>
+    <section class="cards_container">
+        {% for data in data_locations.results %}
+            {% include "_components/location_cards.html.twig" %}            
+        {% endfor %}
+    </section>
+        {% for page in 1..data_locations.info.pages %}
+        <a href="{{path('locations', {'page' : page})}}">{{page}}</a>
+        {% endfor %}
+
+{% endblock %}

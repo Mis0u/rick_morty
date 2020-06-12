@@ -1,0 +1,57 @@
+<p class="status">
+                <strong>Alive : </strong>
+                {% if data.status == 'Dead' %}
+                <i class="fa fa-circle dead" title='Dead'></i>
+                {% elseif data.status =='Alive' %}
+                    <i class="fa fa-circle alive" title='Alive'></i>
+                {% elseif data.status =='unknown' %}
+                <i class="fa fa-circle unknown" title='Unknown'></i>
+                {% endif %}
+            </p>
+            <p class="infos">
+                <strong> Species :</strong> <span>{{data.species}}
+                {% if data.gender  == 'Female' %}
+                    <i class="fa fa-venus" title="Female"></i>
+                {% elseif data.gender == 'Male' %}
+                    <i class="fa fa-mars" title='Male'></i>
+                {% elseif data.gender == 'Genderless' %}
+                    <i class="fa fa-genderless" title='Genderless'></i>
+                {% else %}
+                    <i class="fa fa-neuter" title='Unknown'></i>
+                {% endif %}
+                </span>
+            </p>
+
+                {% if data.type != "" %}
+                <p>
+                    <strong>Type :</strong> {{data.type}}
+                </p>
+                {% endif %}
+
+        <p><strong>Origin:</strong> 
+        <span>
+        {% if data.origin.name == "unknown" %}
+            {{data.origin.name}}
+        {% else %}
+            {% set originLocation = json_decode(data.origin.url) %}
+            <a href="{{path('locations', {'name' : originLocation.name})}}"> {{data.origin.name}} </a>
+        {% endif %}
+        </span>
+        </p>
+        <p><strong>Last known location:</strong>
+        <span>
+         {% if data.location.name == "unknown" %}
+            {{data.location.name}}
+        {% else %}
+            {% set location = json_decode(data.location.url) %}
+            <a href="{{path('locations', {'name' : location.name})}}"> {{data.location.name}} </a>
+        {% endif %}
+        </span>
+         </p>
+            <p><strong>Appears in episode :</strong></p>
+            <div class="container-list">
+                {% for episode in data.episode %}
+                {% set data_episode = json_decode(episode) %}
+                    <p class="list">{{ data_episode.name }}</p>
+                {% endfor %}
+            </div>      

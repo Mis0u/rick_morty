@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello EpisodesController!{% endblock %}
+{% block class_body %}class="episodes"{% endblock %}
+ {% block background %}
+    <div class="bg"></div>
+ {% endblock %}
+{% block body %}
+    <form action="{{path('episodes')}}">
+        <label for="episodes">Look for :</label>
+        <select id="episodes" name="season">
+            <option value="S01">Season 1</option>
+            <option value="S02">Season 2</option>
+            <option value="S03">Season 3</option>
+            <option value="S04">Season 4</option>
+        </select>
+        <button>Search</button>
+    </form>
+    <section class="cards_container">
+        {% for data in data_episodes.results %}
+            {% include "_components/episode_cards.html.twig" %}            
+        {% endfor %}
+    </section>
+        {% for page in 1..data_episodes.info.pages %}
+        <a href="{{path('episodes', {'page' : page})}}">{{page}}</a>
+        {% endfor %}
+
+{% endblock %}

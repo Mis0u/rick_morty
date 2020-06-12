@@ -1,0 +1,11 @@
+<article class="card_content">
+<a data-micromodal-trigger="modal-l-{{data.id}}" href='javascript:void(0);' class="link"></a>
+    <figure>
+        <img src="{{asset('images/thumb-location.jpg')}}" alt="">
+    </figure>
+    <div class="infos">
+        <h2> {{data.name}} </h2>
+        {% include "_components/modal/modal.html.twig" with {'target' : 'l-'~ data.id, 'modal' : 'locations_modal' } %}
+    </div>
+    
+</article>      

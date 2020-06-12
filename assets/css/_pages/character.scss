@@ -1,0 +1,19 @@
+@import "../_components/color.scss";
+@import "../_components/mixin.scss";
+
+.characters {
+  div.bg {
+    @include bg(url("../../images/w-character.jpg"));
+  }
+}
+.dead {
+  color: $dead;
+}
+
+.alive {
+  color: $alive;
+}
+
+.unknown {
+  color: $unknown;
+}

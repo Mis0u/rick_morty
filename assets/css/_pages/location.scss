@@ -1,0 +1,37 @@
+@import "./_components/mixin.scss";
+
+.locations,
+.episodes {
+    div.bg {
+        @include bg(url("../../images/w-location.jpg"));
+    }
+
+    .card_content {
+        max-width: 30%;
+
+        h2 {
+            text-align: center;
+        }
+
+        figure {
+            margin: 0;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.4);
+                opacity: 1;
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        &:hover figure:before {
+            opacity: 0;
+        }
+    }
+}

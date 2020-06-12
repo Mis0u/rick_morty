@@ -1,0 +1,12 @@
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+@import "./_components/variables.scss";
+@import "./_components/mixin.scss";
+
+.slick-list {
+    height: calc(#{$full-screen} - #{$margin-bottom-dots});
+
+    img {
+        @include img
+    }
+}
