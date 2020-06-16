@@ -1,0 +1,31 @@
+@import "../../_components/mixin.scss";
+@import "../../_components/variables.scss";
+@import "../../_components/color.scss";
+
+@keyframes lift_gun {
+    from {
+        transform: lift_gun(0deg);
+    }
+
+    to {
+        transform: lift_gun(22deg);
+    }
+}
+
+
+.error_page_404 {
+    @include bg(url("../../images/w-404.png"), $full-screen);
+    @include flex(flex-end, flex-end);
+    background-position: center;
+
+    div.error {
+        margin-right: 10%;
+
+        img {
+            @include img(200px);
+            transform-origin: top right;
+            animation: lift_gun 2s ease-in-out alternate infinite;
+        }
+    }
+
+}

@@ -1,0 +1,28 @@
+@import '~select2';
+@import '_components/color.scss';
+@import '_components/variables.scss';
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: $rick-morty-color;
+    color: white;
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+    box-shadow: $shadow-form;
+    height: $height-select;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 6px;
+}
+
+.select2-container {
+    outline: none !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: $height-select;
+    outline: none !important;
+}

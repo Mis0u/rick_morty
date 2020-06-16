@@ -1,5 +1,6 @@
 @import "../_components/mixin.scss";
 @import "../_components/color.scss";
+@import "../_components/variables.scss";
 
 section.cards_container {
     @include flex(center, center);
@@ -15,6 +16,7 @@ section.cards_container {
         background-color: $rick-morty-color;
         position: relative;
         margin: 20px;
+        max-width: 300px;
         transition: background-color 0.3s ease-in-out;
 
         &:hover {
@@ -27,11 +29,19 @@ section.cards_container {
         }
 
         div.infos {
-            margin-left: 20px;
-
             h2 {
                 margin-top: 20px;
+                text-align: center;
+                color: $white;
+                font-size: 1.5rem;
             }
+
+            h3,
+            p.first_episode {
+                text-align: center;
+                color: $white;
+            }
+
         }
 
         img {

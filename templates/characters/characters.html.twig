@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CharactersController!{% endblock %}
+{% block title %}Characters{% endblock %}
 
 {% block class_body %}class="characters"{% endblock %}
 
@@ -9,23 +9,15 @@
  {% endblock %}
 {% block body %}
     <form action="{{path('characters')}}">
-        <label for="characters">Look for :</label>
-        <input id="characters" name="name" type="text">
-        <button>Search</button>
+    {% set name = app.request.query.get('name') %}
+        <input id="characters" name="name" type="text" placeholder="{% if name %}Result for {{name}}...{% else %}Name of the character...{% endif %}">
+        <button><i class="fa fa-search"></i></button>
     </form>
     <section class="cards_container">
         {% for data in data_characters.results %}
             {% include "_components/character_cards.html.twig" %}            
         {% endfor %}
     </section>
-    {% if query %}
-        {% for page in 1..data_characters.info.pages %}
-            <a href="{{path('characters', {'page' : page, 'query' : query})}}">{{page}}</a>
-        {% endfor %}
-    {% else %}
-        {% for page in 1..data_characters.info.pages %}
-        <a href="{{path('characters', {'page' : page})}}">{{page}}</a>
-        {% endfor %}
-    {% endif %}
+   {% include "_components/pagination.html.twig" with {'max_page' : data_characters.info.pages, 'target': 'characters'} %}
 
 {% endblock %}

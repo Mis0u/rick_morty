@@ -1,0 +1,42 @@
+@import "./_components/mixin.scss";
+@import "../_components/variables.scss";
+@import "../_components/color.scss";
+
+.pagination ul {
+    @include flex(center, center);
+    flex-wrap: wrap;
+    width: auto;
+
+    li {
+        list-style-type: $no-bullet;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+        border: 2px solid;
+        border-color: $rick-morty-color;
+        background-color: $rick-morty-color;
+        margin: 0 5px;
+        border-radius: 100%;
+        overflow: hidden;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $rick-morty-color-hover;
+            border-color: $rick-morty-color-hover;
+        }
+
+        &.current_page {
+            pointer-events: none;
+            background-color: $rick-morty-color-hover;
+        }
+
+        a {
+            display: block;
+            height: 100%;
+            text-align: center;
+            padding: 10px 0;
+            color: $white;
+            font-weight: bold;
+        }
+    }
+}

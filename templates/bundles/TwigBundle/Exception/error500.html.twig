@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No match !!!</title>
+    {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body class="error_page_500">
+    <div class="error">
+        <p>Oops, looks like what you're looking for has'nt been created by the authors yet !! </p> 
+        <p>Click on the portal to bring you home</p>
+        <p class="portal_container"><a href="{{path('home')}}"><img src="{{asset('images/portal.png')}}" alt="portal"></a></p>
+            
+    </div>
+</body>
+</html>

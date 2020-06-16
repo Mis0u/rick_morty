@@ -1,0 +1,33 @@
+@import "../../_components/mixin.scss";
+@import "../../_components/variables.scss";
+@import "../../_components/color.scss";
+
+@keyframes rotate {
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.error_page_500 {
+    @include bg(url("../../images/w-500.png"), $full-screen);
+    @include flex(flex-start, center);
+    background-position: center;
+
+    div.error {
+        margin-left: 10%;
+        @include flex(center, center, column);
+
+        p {
+            text-align: center;
+            color: $white;
+            font-weight: bold;
+            font-size: 1.2rem;
+
+            img {
+                animation: rotate 9s linear infinite;
+            }
+        }
+    }
+}

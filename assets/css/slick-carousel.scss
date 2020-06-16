@@ -2,11 +2,26 @@
 @import "~slick-carousel/slick/slick-theme.scss";
 @import "./_components/variables.scss";
 @import "./_components/mixin.scss";
+@import "./_components/color.scss";
 
 .slick-list {
-    height: calc(#{$full-screen} - #{$margin-bottom-dots});
 
     img {
-        @include img
+        width: 100%;
+        height: $full-screen;
+    }
+}
+
+ul.slick-dots {
+    bottom: 10px;
+
+    li button:before {
+        opacity: 0.5;
+        color: $white;
+        transform: scale(1.5);
+    }
+
+    li.slick-active button:before {
+        color: $white;
     }
 }

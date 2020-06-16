@@ -6,6 +6,7 @@ use Exception;
 
 class HandleApiError
 {
+
     public function getError($target, int $error)
     {
         if ($target === $error) {

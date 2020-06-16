@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('slick-css') }}
@@ -17,13 +17,19 @@
 {% endblock %}
 {% block body %}
     <section class="presentation">
-        <h1>Welcome in the famous world of Rick and Morty ❤</h1>
-        <p>You want to know who lives in <strong><mark>Earth C-137</mark></strong> ?, what the <strong><mark>Mechanical Morty's</mark></strong> species ? or whic characters played in the 
-        <strong><mark>episode 8 season 3</mark></strong> ? Well you are in the rigth place. You will be able to search by locations, characters or episodes and find anything you're looking for ✨.
-         I buildt this website thanks to the <strong><a href="https://rickandmortyapi.com/" target="_blank">Rick and Morty's api</a></strong> created by 
+        <h1>Welcome in the famous world of Rick and Morty <span class='heart'>❤</span></h1>
+        <p>You want to know who lives in <a href="{{path('locations', {'name' : 'Earth (C-137)'})}}"><strong><mark>Earth C-137</mark></strong></a> ?, 
+        what the <a href="{{path('characters', {'name' : 'Mechanical Morty'})}}"><strong><mark>Mechanical Morty's</mark></strong></a> species ? or which characters played in the 
+        <a href="{{path('episodes', {'season': 'S03E08'})}}"><strong><mark>Episode 8 season 3</mark></strong></a> ? Well you are in the rigth place. You will be able to search by locations, 
+        characters or episodes and find anything you're looking for ✨.
+         I buildt this website thanks to the <mark><strong><a href="https://rickandmortyapi.com/" target="_blank">Rick and Morty's api</a></strong></mark> created by 
          <strong> Axel Fuhrmann and Talita</strong> so thanks to them for their amazing work.</p>
 
-         <h2>Hope you're gonna find what you're looking for and remember, it's time to get <strong>Schwifty</strong></h2>
+         <h2>Hope you're gonna find what you're looking for and remember,<br> it's time to get <strong>Schwifty</strong></h2>
+
+         <div class="youtube_video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4ctK1aoWuqY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         </div>
 
     </section>
     <section class="cards_container">

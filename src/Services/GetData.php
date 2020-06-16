@@ -17,18 +17,18 @@ class GetData
         $this->httpClient = $httpClient;
     }
 
-    public function singleResult(string $apiTarget, int $id)
+    public function getResultFromApi(string $apiTarget, string $subject = NULL, $query = null, int $page = 1)
     {
-        $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . '/' . $id);
+        $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . '/?page=' . $page . '&' . $subject . '=' . $query);
 
         $this->handleApiError->getError($response->getStatusCode(), Response::HTTP_NOT_FOUND);
 
         return $response->toArray();
     }
 
-    public function getResultFromApi(string $apiTarget, string $subject = NULL, $query = null, int $page = 1)
+    public function getSingleResult(string $apiTarget, int $id)
     {
-        $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . '/?page=' . $page . '&' . $subject . '=' . $query);
+        $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . "/" . $id);
 
         $this->handleApiError->getError($response->getStatusCode(), Response::HTTP_NOT_FOUND);
 

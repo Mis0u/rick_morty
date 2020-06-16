@@ -5,21 +5,14 @@
     flex-direction: $dir
 }
 
-@mixin grid($columns, $rows, $gap:0px) {
-    display: grid;
-    grid-template-columns: $columns;
-    grid-template-rows: $rows;
-    grid-gap: $gap;
-}
-
-@mixin img {
-    max-width: 100%;
+@mixin img($width:100%) {
+    max-width: $width;
     height: auto;
 }
 
-@mixin bg($url) {
+@mixin bg($url, $height: 70vh) {
     background-image: $url;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
+    height: $height;
 }

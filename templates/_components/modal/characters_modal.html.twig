@@ -9,7 +9,7 @@
                 {% endif %}
             </p>
             <p class="infos">
-                <strong> Species :</strong> <span>{{data.species}}
+                <strong> Species :</strong> <span>{{data.species}} - 
                 {% if data.gender  == 'Female' %}
                     <i class="fa fa-venus" title="Female"></i>
                 {% elseif data.gender == 'Male' %}
@@ -28,17 +28,17 @@
                 </p>
                 {% endif %}
 
-        <p><strong>Origin:</strong> 
+        <p><strong>Origin : </strong> 
         <span>
         {% if data.origin.name == "unknown" %}
-            {{data.origin.name}}
+            {{data.origin.name|capitalize}}
         {% else %}
             {% set originLocation = json_decode(data.origin.url) %}
             <a href="{{path('locations', {'name' : originLocation.name})}}"> {{data.origin.name}} </a>
         {% endif %}
         </span>
         </p>
-        <p><strong>Last known location:</strong>
+        <p><strong>Last known location : </strong>
         <span>
          {% if data.location.name == "unknown" %}
             {{data.location.name}}
@@ -52,6 +52,6 @@
             <div class="container-list">
                 {% for episode in data.episode %}
                 {% set data_episode = json_decode(episode) %}
-                    <p class="list">{{ data_episode.name }}</p>
+                    <p class="list"><a href="{{path('episodes', {'season' : data_episode.episode})}}">{{ data_episode.name }}</a></p>
                 {% endfor %}
             </div>      

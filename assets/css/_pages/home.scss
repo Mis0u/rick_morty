@@ -1,12 +1,54 @@
+@import "../_components/color.scss";
+
 .homepage {
     section.presentation {
         width: 80%;
         margin: auto;
 
+        p {
+            text-align: center;
+            line-height: 34px;
+
+            mark {
+                padding: 5px;
+                background-color: $rick-morty-color;
+                transition: 0.3s ease-in-out;
+                color: $white;
+
+                &:hover {
+                    background-color: $rick-morty-color-hover;
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+
         h1,
         h2 {
             text-align: center;
+            color: $rick-morty-color;
+
+            .heart {
+                color: $red;
+            }
         }
 
+    }
+
+    .youtube_video {
+        overflow: hidden;
+        padding-bottom: 36.25%;
+        position: relative;
+        height: 0;
+    }
+
+    .youtube_video iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
     }
 }

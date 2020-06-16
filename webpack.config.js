@@ -25,7 +25,9 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('slick', './assets/js/slick.js')
+    .addEntry('select2', './assets/js/select2.js')
     .addStyleEntry('slick-css', './assets/css/slick-carousel.scss')
+    .addStyleEntry('select2-css', './assets/css/select2.scss')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

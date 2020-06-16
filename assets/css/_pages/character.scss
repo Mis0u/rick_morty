@@ -6,12 +6,13 @@
     @include bg(url("../../images/w-character.jpg"));
   }
 }
+
 .dead {
-  color: $dead;
+  color: $red;
 }
 
 .alive {
-  color: $alive;
+  color: $green;
 }
 
 .unknown {

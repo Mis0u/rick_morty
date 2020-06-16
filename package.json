@@ -19,6 +19,7 @@
         "jquery": "^3.5.1",
         "micromodal": "^0.4.6",
         "sass": "^1.26.5",
+        "select2": "^4.0.13",
         "slick-carousel": "^1.8.1"
     }
 }

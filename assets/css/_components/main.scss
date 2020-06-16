@@ -1,5 +1,9 @@
+@import "color.scss";
+@import "mixin.scss";
+@import "variables.scss";
+
 body {
-    margin: 0;
+  margin: 0;
 }
 
 p,
@@ -12,9 +16,46 @@ h4,
 h5,
 h6,
 span {
-    font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+form {
+  @include flex(center, center);
+  margin-top: 10px;
+
+  input,
+  select {
+    border: none;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    box-shadow: $shadow-form;
+    width: 30vw;
+  }
+
+  button {
+    border: 1px solid;
+    border-left: 0;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    background: $rick-morty-color;
+    border-color: $rick-morty-color;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: $shadow-form;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $rick-morty-color-hover;
+    }
+
+    i {
+      color: $white;
+    }
+  }
 }

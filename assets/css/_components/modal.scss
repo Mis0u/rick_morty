@@ -50,7 +50,7 @@
     border: 0;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 20px;
 
     &:focus {
         outline: none !important;
@@ -73,6 +73,54 @@
     line-height: 1.5;
     width: 100%;
 
+    a {
+        color: $white;
+        font-weight: bold;
+    }
+
+    span a {
+        position: relative;
+        padding: 10px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 0%;
+            z-index: -1;
+            background-color: $rick-morty-color;
+            transition: 0.3s ease-in-out;
+        }
+
+        &:hover:before {
+            height: 100%;
+        }
+    }
+
+    p.infos {
+        .fa-mars {
+            color: $male;
+            font-weight: bold;
+        }
+
+        .fa-venus {
+            color: $female;
+            font-weight: bold;
+        }
+
+        .fa-neuter {
+            color: $neutral;
+            font-weight: bold;
+        }
+
+        .fa-genderless {
+            color: $genderless;
+            font-weight: bold;
+        }
+    }
+
     p,
     h3 {
         text-align: center;
@@ -87,7 +135,15 @@
             border-radius: 50px;
             box-shadow: $neumorphisme;
             padding: 10px;
-            color: $white;
+            transition: 0.3s ease-in-out;
+
+            a {
+                padding: 10px;
+            }
+
+            &:hover {
+                box-shadow: $neumorphisme-hover;
+            }
         }
     }
 

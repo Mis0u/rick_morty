@@ -16,7 +16,9 @@ class EpisodesController extends AbstractController
      */
     public function episodes(int $page = 1, string $query = null, GetData $data, Request $request)
     {
-        $apiData = $data->getResultFromApi(ListConstForApi::SEARCH_EPISODE, $query, $page);
+        $apiData = $data->getResultFromApi(ListConstForApi::SEARCH_EPISODE, ListConstForApi::SUBJECT_EPISODE_QUERY, "S01", $page);
+        $totalEpisodes = $data->getResultFromApi(ListConstForApi::SEARCH_EPISODE)['info']['count'];
+        $lastSeason = $data->getSingleResult(ListConstForApi::SEARCH_EPISODE, $totalEpisodes);
 
         if ($request->query->get('season')) {
             $query = str_replace(" ", "+", $request->query->get('season'));
@@ -26,7 +28,8 @@ class EpisodesController extends AbstractController
 
         return $this->render('episodes/episodes.html.twig', [
             'data_episodes' => $apiData,
-            'query' => $query
+            'query' => $query,
+            'last_season' => $lastSeason
         ]);
     }
 }

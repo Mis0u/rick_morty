@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body class="error_page_404">
+    <div class="error">
+        <a href="{{path('home')}}" title="Bring me home"><img src="{{asset('images/portal_gun.png')}}" alt="portal gun"></a>
+    </div>
+</body>
+</html>

@@ -1,10 +1,26 @@
 @import "./_components/mixin.scss";
+@import "./_components/color.scss";
 
-.locations,
-.episodes {
+.locations {
     div.bg {
         @include bg(url("../../images/w-location.jpg"));
     }
+
+    .card_content {
+        max-width: 400px !important;
+    }
+}
+
+.episodes {
+    div.bg {
+        @include bg(url("../../images/w-episode.jpg"));
+        background-position: center;
+    }
+}
+
+
+.locations,
+.episodes {
 
     .card_content {
         max-width: 30%;
@@ -28,6 +44,13 @@
                 opacity: 1;
                 transition: 0.3s ease-in-out;
             }
+        }
+
+        p.air_date {
+            font-size: 0.8rem;
+            color: $white;
+            font-weight: bold;
+            text-align: center;
         }
 
         &:hover figure:before {
