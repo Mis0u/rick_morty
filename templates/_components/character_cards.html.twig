@@ -15,9 +15,8 @@
         {% include "_components/modal/modal.html.twig" with {'target' : data.id, 'modal' : 'characters_modal'} %}
         {% endif %}
             <h3>First seen in:</h3>
-            {% for episode in data.episode[:1] %}
-            {% set data_episode = json_decode(episode) %}
-                <p class="first_episode">{{ data_episode.name }}</p>
-            {% endfor %}
+             {% for episode in data.episode[:1] %}
+                <p class="js-first-episode" data-first-episode="{{ episode }}"></p>
+            {% endfor %} 
     </div>
 </article>      

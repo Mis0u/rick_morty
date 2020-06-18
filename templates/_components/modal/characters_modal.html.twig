@@ -33,8 +33,7 @@
         {% if data.origin.name == "unknown" %}
             {{data.origin.name|capitalize}}
         {% else %}
-            {% set originLocation = json_decode(data.origin.url) %}
-            <a href="{{path('locations', {'name' : originLocation.name})}}"> {{data.origin.name}} </a>
+            <a href="{{path('locations', {'name' : data.origin.name})}}"> {{data.origin.name}} </a>
         {% endif %}
         </span>
         </p>
@@ -43,15 +42,13 @@
          {% if data.location.name == "unknown" %}
             {{data.location.name}}
         {% else %}
-            {% set location = json_decode(data.location.url) %}
-            <a href="{{path('locations', {'name' : location.name})}}"> {{data.location.name}} </a>
+            <a href="{{path('locations', {'name' : data.location.name})}}"> {{data.location.name}} </a>
         {% endif %}
         </span>
          </p>
             <p><strong>Appears in episode :</strong></p>
             <div class="container-list">
                 {% for episode in data.episode %}
-                {% set data_episode = json_decode(episode) %}
-                    <p class="list"><a href="{{path('episodes', {'season' : data_episode.episode})}}">{{ data_episode.name }}</a></p>
+                    <p class="list"><a href=""class="js-appear-episode" data-episodes="{{episode}}"></a></p>
                 {% endfor %}
             </div>      

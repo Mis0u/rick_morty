@@ -21,3 +21,8 @@
    {% include "_components/pagination.html.twig" with {'max_page' : data_characters.info.pages, 'target': 'characters'} %}
 
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ajax-char') }}
+{% endblock %}
