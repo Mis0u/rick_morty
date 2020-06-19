@@ -1,29 +1,42 @@
 {% if max_page > 1 %}
     {% set request = app.request.attributes.get('page') %}
+    {% set nearbyPagesLimit = 3 %}
      <div class="pagination">
-     <ul>
-        {% if query %}
-             {% if request > 1 %}
-                <li><a href="{{path(target, {'page' : request - 1, 'query' : query})}}">Prev</a></li> 
+        <ul>
+            {% if query %}
+                {% if request > 1 %}
+                    <li><a href="{{path(target, {'page' : request - 1, 'query' : query})}}">Prev</a></li> 
+                {% endif %}
+                {% for page in 1..max_page %}
+                <li {% if request == page %}class="current_page"{% endif %}><a href="{{path(target, {'page' : page, 'query' : query})}}">{{page}}</a></li>
+                {% endfor %}
+                {% if request < max_page %}
+                    <li><a href="{{path(target, {'page' : request + 1, 'query' : query})}}">Next</a></li> 
+                {% endif %}
+            {% else %}
+                {% if request > 1 %}
+                    <li><a href="{{path(target, {'page' : request - 1})}}">Prev</a></li> 
+                {% endif %}
+                
+                {% for page in 1..max_page %}
+                {% if 0 == (request - nearbyPagesLimit) - loop.index %} {# dot before #}
+                    <li ><a href="{{path(target, {'page' : 1, 'query' : query})}}">1</a></li>
+                    <li class="disabled"><a href="#">...</a></li>
+                {% elseif 0 == (request + nearbyPagesLimit) - loop.index %} {# dot after #}
+                    <li class="disabled"><a href="{{path(target, {'page' : page, 'query' : query})}}">...</a></li>
+                    <li ><a href="{{path(target, {'page' : max_page, 'query' : query})}}">{{max_page}}</a></li>
+                {% elseif 0 < (request - nearbyPagesLimit) - loop.index %} {# hide all before #}
+                {% elseif 0 > (request + nearbyPagesLimit) - loop.index %} {# hide all after #}
+                {% else %}
+                    <li {% if request == page %}class="current_page"{% endif %}><a href="{{path(target, {'page' : page, 'query' : query})}}">{{page}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if request < max_page %}
+                    <li><a href="{{path(target, {'page' : request + 1})}}">Next</a></li> 
+                {% endif %}
             {% endif %}
-            {% for page in 1..max_page %}
-               <li {% if request == page %}class="current_page"{% endif %}><a href="{{path(target, {'page' : page, 'query' : query})}}">{{page}}</a></li>
-            {% endfor %}
-            {% if request < max_page %}
-                <li><a href="{{path(target, {'page' : request + 1, 'query' : query})}}">Next</a></li> 
-            {% endif %}
-        {% else %}
-            {% if request > 1 %}
-                <li><a href="{{path(target, {'page' : request - 1})}}">Prev</a></li> 
-            {% endif %}
-            {% for page in 1..max_page %}
-                <li  {% if request == page %}class="current_page"{% endif %}><a href="{{path(target, {'page' : page})}}">{{page}}</a></li>
-            {% endfor %}
-             {% if request < max_page %}
-                <li><a href="{{path(target, {'page' : request + 1})}}">Next</a></li> 
-            {% endif %}
-        {% endif %}
         </ul>
     </div>
 {% endif %}
-    
+
+

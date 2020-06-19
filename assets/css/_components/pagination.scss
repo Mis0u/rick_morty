@@ -4,7 +4,6 @@
 
 .pagination ul {
     @include flex(center, center);
-    flex-wrap: wrap;
     width: auto;
 
     li {
@@ -28,6 +27,17 @@
         &.current_page {
             pointer-events: none;
             background-color: $rick-morty-color-hover;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            background-color: transparent;
+            border: none;
+
+            a {
+                letter-spacing: 2px;
+                color: black;
+            }
         }
 
         a {

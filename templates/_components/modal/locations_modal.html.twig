@@ -1,18 +1,17 @@
 <p> <strong>Type : </strong>{{data.type}} </p>
 <p> <strong>Dimension : </strong>{{data.dimension}} </p>
 <section class="list-characters">
-
-{% if data.residents == [] %}
-    <h2>No residents in this location</h2>
-    {% else %}
+    {% if data.residents == [] %}
+        <h2>No residents in this location</h2>
+        {% else %}
         <h2>Residents in this location : </h2>
-{% endif %}
-   <div class="residents">
+    {% endif %}
+    <div class="residents">
         {% for resident in data.residents %}
-    <article class="card_thumb_content" title="">
-        <a href="" class="link"></a>
-        <img src="" alt="" class="js-actual-residents" data-character="{{resident}}">
-    </article>
-{% endfor %}
+        <article class="card_thumb_content" title="">
+            <a href="" class="link"></a>
+            <img src="" alt="" class="js-actual-residents" data-character="{{resident}}">
+        </article>
+        {% endfor %}
     </div>
 </section>

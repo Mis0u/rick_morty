@@ -1,17 +1,16 @@
 <p> <strong>Episode : </strong>{{data.episode}} </p>
 <section class="list-characters">
-
-{% if data.characters == [] %}
-    <h2>No characters in this episode</h2>
-    {% else %}
+    {% if data.characters == [] %}
+        <h2>No characters in this episode</h2>
+        {% else %}
         <h2>characters in this episode : </h2>
-{% endif %}
+    {% endif %}
     <div class="characters">
     {% for resident in data.characters %}
     <article class="card_thumb_content" title="">
         <a href="" class="link"></a>
         <img src="" class="js-actual-residents" data-character="{{resident}}">
     </article>
-{% endfor %}
+    {% endfor %}
     </div>
 </section>

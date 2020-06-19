@@ -6,7 +6,7 @@
  {% endblock %}
 {% block body %}
     <form action="{{path('locations')}}">
-    {% set name = app.request.query.get('name') %}
+        {% set name = app.request.query.get('name') %}
         <input id="locations" name="name" type="text" placeholder="{% if name %}Result for {{name}}...{% else %}Name of the location...{% endif %}">
         <button><i class="fa fa-search"></i></button>
     </form>
@@ -15,12 +15,8 @@
             {% include "_components/location_cards.html.twig" %}            
         {% endfor %}
     </section>
-
     {% include "_components/pagination.html.twig" with {'max_page' : data_locations.info.pages, 'target': 'locations'} %}
-
-
 {% endblock %}
-
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('ajax-loc-ep') }}

@@ -2,7 +2,16 @@
     display: flex;
     justify-content: $justify;
     align-items: $align;
-    flex-direction: $dir
+    flex-direction: $dir;
+
+    @if $dir==column {
+        flex-wrap: nowrap;
+    }
+
+    @else {
+        flex-wrap: wrap;
+    }
+
 }
 
 @mixin img($width:100%) {

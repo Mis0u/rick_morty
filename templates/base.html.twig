@@ -10,22 +10,17 @@
         {% endblock %}
     </head>
     <body {% block class_body %}{% endblock %}>
-    <header>
-        <nav>
-        <a href="{{path('home')}}"><img src="{{asset('images/rick-morty.png')}}" alt=""></a>
-            <ul>
-                <li>
-                    <a href="{{path('characters')}}" {% if app.request.attributes.get('_route') == 'characters' %} class="active"{% endif %}>Characters</a>
-                </li>
-                <li>
-                    <a href="{{path('locations')}}" {% if app.request.attributes.get('_route') == 'locations' %} class="active"{% endif %}>Locations</a>
-                </li>
-                <li><a href="{{path('episodes')}}" {% if app.request.attributes.get('_route') == 'episodes' %} class="active"{% endif %}>Episodes</a></li>
-            </ul>
-        </nav>
-        {% block background %}{% endblock %}
-        
-    </header>
+        <header>
+            <nav>
+                <a href="{{path('home')}}"><img src="{{asset('images/rick-morty.png')}}" alt=""></a>
+                <ul>
+                    <li><a href="{{path('characters')}}" {% if app.request.attributes.get('_route') == 'characters' %} class="active"{% endif %}>Characters</a></li>
+                    <li><a href="{{path('locations')}}" {% if app.request.attributes.get('_route') == 'locations' %} class="active"{% endif %}>Locations</a></li>
+                    <li><a href="{{path('episodes')}}" {% if app.request.attributes.get('_route') == 'episodes' %} class="active"{% endif %}>Episodes</a></li>
+                </ul>
+            </nav>
+            {% block background %}{% endblock %}
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}

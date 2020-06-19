@@ -2,18 +2,14 @@
 
 namespace App\Services;
 
-use App\Services\HandleApiError;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GetData
 {
-    private $handleApiError;
     private $httpClient;
 
-    public function __construct(HandleApiError $handleApiError, HttpClientInterface $httpClient)
+    public function __construct(HttpClientInterface $httpClient)
     {
-        $this->handleApiError = $handleApiError;
         $this->httpClient = $httpClient;
     }
 
@@ -21,16 +17,12 @@ class GetData
     {
         $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . '/?page=' . $page . '&' . $subject . '=' . $query);
 
-        $this->handleApiError->getError($response->getStatusCode(), Response::HTTP_NOT_FOUND);
-
         return $response->toArray();
     }
 
     public function getSingleResult(string $apiTarget, int $id)
     {
         $response = $this->httpClient->request('GET', 'https://rickandmortyapi.com/api/' . $apiTarget . "/" . $id);
-
-        $this->handleApiError->getError($response->getStatusCode(), Response::HTTP_NOT_FOUND);
 
         return $response->toArray();
     }

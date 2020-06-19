@@ -9,8 +9,8 @@
     <div class="bg"></div>
  {% endblock %}
 {% block body %}
-{% set request = app.request.query.get('season') %}
-{% set season = last_season.episode|slice(2,1) %}
+    {% set request = app.request.query.get('season') %}
+    {% set season = last_season.episode|slice(2,1) %}
     <form action="{{path('episodes')}}">
         <select id="episodes" class='js-select' name="season">
         {% for i in 1..season %}
@@ -25,9 +25,7 @@
         {% endfor %}
     </section>
     {% include "_components/pagination.html.twig" with {'max_page' : data_episodes.info.pages, 'target': 'episodes'} %}
-
 {% endblock %}
-
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('select2') }}

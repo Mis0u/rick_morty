@@ -9,7 +9,7 @@
  {% endblock %}
 {% block body %}
     <form action="{{path('characters')}}">
-    {% set name = app.request.query.get('name') %}
+        {% set name = app.request.query.get('name') %}
         <input id="characters" name="name" type="text" placeholder="{% if name %}Result for {{name}}...{% else %}Name of the character...{% endif %}">
         <button><i class="fa fa-search"></i></button>
     </form>
@@ -19,9 +19,7 @@
         {% endfor %}
     </section>
    {% include "_components/pagination.html.twig" with {'max_page' : data_characters.info.pages, 'target': 'characters'} %}
-
 {% endblock %}
-
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('ajax-char') }}

@@ -128,7 +128,6 @@
 
     div.container-list {
         @include flex(space-evenly, center);
-        flex-wrap: wrap;
 
         p.list {
             background: $modal-linear;
@@ -152,7 +151,6 @@
 
         div {
             @include flex(space-evenly, center);
-            flex-wrap: wrap;
         }
 
         article.card_thumb_content {

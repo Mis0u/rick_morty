@@ -1,11 +1,11 @@
 {% set route = app.request.attributes.get('_route') %}
 
 <article class="card_content">
-        {% if route == 'home' %}
-        <a data-micromodal-trigger="modal-h-{{data.id}}" href='javascript:void(0);' class="link"></a>
-        {% else %}
-        <a data-micromodal-trigger="modal-{{data.id}}" href='javascript:void(0);' class="link"></a>
-        {% endif %}
+    {% if route == 'home' %}
+    <a data-micromodal-trigger="modal-h-{{data.id}}" href='javascript:void(0);' class="link"></a>
+    {% else %}
+    <a data-micromodal-trigger="modal-{{data.id}}" href='javascript:void(0);' class="link"></a>
+    {% endif %}
     <p class="avatar"><img src="{{data.image}}" alt="{{ data.name }}" title="{{ data.name }}"> </p>
     <div class="infos">
         <h2> {{data.name}} </h2>
@@ -14,9 +14,9 @@
         {% else %}
         {% include "_components/modal/modal.html.twig" with {'target' : data.id, 'modal' : 'characters_modal'} %}
         {% endif %}
-            <h3>First seen in:</h3>
-             {% for episode in data.episode[:1] %}
-                <p class="js-first-episode" data-first-episode="{{ episode }}"></p>
-            {% endfor %} 
+        <h3>First seen in:</h3>
+        {% for episode in data.episode[:1] %}
+            <p class="js-first-episode" data-first-episode="{{ episode }}"></p>
+        {% endfor %} 
     </div>
 </article>      

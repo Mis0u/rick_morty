@@ -1,5 +1,5 @@
 <article class="card_content">
-<a data-micromodal-trigger="modal-e-{{data.id}}" href='javascript:void(0);' class="link"></a>
+    <a data-micromodal-trigger="modal-e-{{data.id}}" href='javascript:void(0);' class="link"></a>
     <figure>
         <img src="{{asset('images/thumb-episode.jpg')}}" alt="">
     </figure>
@@ -8,5 +8,4 @@
         <p class="air_date">{{data.air_date}}</p>
         {% include "_components/modal/modal.html.twig" with {'target' : 'e-'~ data.id, 'modal' : 'episodes_modal' } %}
     </div>
-    
 </article>     
