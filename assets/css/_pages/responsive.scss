@@ -1,0 +1,48 @@
+@import "./_components/variables.scss";
+
+@media screen and (max-width: 1400px) {
+  .homepage .youtube_video {
+    padding-bottom: 56, 25%;
+  }
+
+  .slick-list img {
+    height: 70vh !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .slick-list img {
+    height: $half-screen !important;
+  }
+  div.bg {
+    height: $half-screen !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .slick-list img {
+    height: 40vh !important;
+  }
+}
+
+@media screen and (min-width: 380px) and (max-width: 480px) {
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .homepage .youtube_video {
+    padding-bottom: 86, 25%;
+  }
+
+  .slick-list img {
+    height: 30vh !important;
+  }
+
+  div.bg {
+    height: 30vh !important;
+  }
+  form input,
+  form select {
+    width: 60vw;
+  }
+}
