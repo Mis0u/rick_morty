@@ -1,7 +1,7 @@
 # Rick and Morty
 
 J'ai créé ce site en me basant sur [l'Api](https://rickandmortyapi.com/) de Rick et Morty  
-L'Api étant en Anglais, j'ai donc créé le site dans la même langue
+L'Api étant en Anglais, j'ai donc créé le site dans la même langue.
 
 ## Installation
 
@@ -16,3 +16,13 @@ Puis vous situer à la racine du projet et effectuer :
 ```
 composer install
 ```
+
+```
+yarn install
+```
+
+```
+yarn dev
+```
+
+Et pour terminer lancer votre serveur avec la méthode que vous préférez
