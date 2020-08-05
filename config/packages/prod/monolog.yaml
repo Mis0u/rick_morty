@@ -11,7 +11,6 @@ monolog:
       path: "%kernel.logs_dir%/%kernel.environment%.log"
       level: debug
     console:
-      type: filter
+      type: console
       process_psr_3_messages: false
-      handler: deprecation
       channels: ["!event", "!doctrine"]
