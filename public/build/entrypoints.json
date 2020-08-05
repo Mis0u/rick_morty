@@ -1,0 +1,60 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.420770e4.js",
+        "/build/0.960c31de.js",
+        "/build/app.3f9ca4ca.js"
+      ],
+      "css": [
+        "/build/app.cd00b594.css"
+      ]
+    },
+    "slick": {
+      "js": [
+        "/build/runtime.420770e4.js",
+        "/build/0.960c31de.js",
+        "/build/3.a8ff56ef.js",
+        "/build/slick.3543038c.js"
+      ]
+    },
+    "select2": {
+      "js": [
+        "/build/runtime.420770e4.js",
+        "/build/0.960c31de.js",
+        "/build/2.19d6ac52.js",
+        "/build/select2.8706cd73.js"
+      ]
+    },
+    "ajax-loc-ep": {
+      "js": [
+        "/build/runtime.420770e4.js",
+        "/build/1.60f80d82.js",
+        "/build/ajax-loc-ep.9c9cb48f.js"
+      ]
+    },
+    "ajax-char": {
+      "js": [
+        "/build/runtime.420770e4.js",
+        "/build/1.60f80d82.js",
+        "/build/ajax-char.695d1e1f.js"
+      ]
+    },
+    "slick-css": {
+      "js": [
+        "/build/runtime.420770e4.js"
+      ],
+      "css": [
+        "/build/slick-css.ea0c5767.css"
+      ]
+    },
+    "select2-css": {
+      "js": [
+        "/build/runtime.420770e4.js"
+      ],
+      "css": [
+        "/build/select2-css.c691a5ad.css"
+      ]
+    }
+  }
+}

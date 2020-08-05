@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["slick"],{"2QUq":function(s,e,o){"use strict";o.r(e);var a=o("EVdn"),n=o.n(a);o("Zej/");n()("#slider").slick({slidesToShow:1,slidesToScroll:1,autoplay:!0,autoplaySpeed:2e3,dots:!0,fade:!0,cssEase:"linear",speed:800,arrows:!1,pauseOnFocus:!1,pauseOnHover:!1})}},[["2QUq","runtime",0,3]]]);
