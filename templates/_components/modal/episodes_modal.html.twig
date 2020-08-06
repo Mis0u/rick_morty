@@ -6,10 +6,12 @@
         <h2>characters in this episode : </h2>
     {% endif %}
     <div class="characters">
+        <p id="load"></p>
+
     {% for resident in data.characters %}
     <article class="card_thumb_content" title="">
         <a href="" class="link"></a>
-        <img src="" class="js-actual-residents" data-character="{{resident}}">
+        <img src="https://federec.com/FEDEREC/OWS/images/loading.gif" class="js-actual-residents" data-character="{{resident}}">
     </article>
     {% endfor %}
     </div>
